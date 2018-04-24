@@ -1,0 +1,19 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true,
+        "modules": true,
+        "experimentalObjectRestSpread": true
+    }
+  },
+  "plugins": ["prettier", "jsx-a11y"],
+  "rules": {
+    "prettier/prettier": "error",
+  },
+  "extends": [
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended"
+  ]
+}

@@ -1,26 +1,52 @@
-const { createServer } = require('http')
-const { join } = require('path')
-const { parse } = require('url')
+const express = require('express')
+const path = require('path')
 const next = require('next')
 
-const app = next()
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev })
 const handle = app.getRequestHandler()
 
-app.prepare()
-  .then(() => {
-    createServer((req, res) => {
-      const parsedUrl = parse(req.url, true)
-      const { pathname } = parsedUrl
+const i18nextMiddleware = require('i18next-express-middleware')
+const Backend = require('i18next-node-fs-backend')
+const { i18nInstance } = require('./i18n')
 
-      if (pathname === '/service-worker.js') {
-        const filePath = join(__dirname, '.next', pathname)
+// init i18next with serverside settings
+// using i18next-express-middleware
+i18nInstance
+  .use(Backend)
+  .use(i18nextMiddleware.LanguageDetector)
+  .init({
+    fallbackLng: 'en',
+    preload: ['en', 'pt'], // preload all langages
+    ns: ['common', 'home', 'page2'], // need to preload all the namespaces
+    backend: {
+      loadPath: path.join(__dirname, '/locales/{{lng}}/{{ns}}.json'),
+      addPath: path.join(__dirname, '/locales/{{lng}}/{{ns}}.missing.json')
+    }
+  }, () => {
+    // loaded translations we can bootstrap our routes
+    app.prepare()
+      .then(() => {
+        const server = express()
 
-        app.serveStatic(req, res, filePath)
-      } else {
-        handle(req, res, parsedUrl)
-      }
-    })
-    .listen(3000, () => {
-      console.log(`> Ready on http://localhost:${3000}`)
-    })
+        // enable middleware for i18next
+        server.use(i18nextMiddleware.handle(i18nInstance))
+
+        // serve locales for client
+        server.use('/locales', express.static(path.join(__dirname, '/locales')))
+
+        // load service workers
+        server.use('/service-worker.js', express.static(path.join(__dirname, '.next', '/service-worker.js')))
+
+        // missing keys
+        server.post('/locales/add/:lng/:ns', i18nextMiddleware.missingKeyHandler(i18nInstance))
+
+        // use next.js
+        server.get('*', (req, res) => handle(req, res))
+
+        server.listen(3000, (err) => {
+          if (err) throw err
+          console.log('> Ready on http://localhost:3000')
+        })
+      })
   })
