@@ -8,7 +8,7 @@ const handle = app.getRequestHandler()
 
 const i18nextMiddleware = require('i18next-express-middleware')
 const Backend = require('i18next-node-fs-backend')
-const { i18nInstance } = require('./i18n')
+const { i18nInstance } = require('./utils/i18n')
 
 // init i18next with serverside settings
 // using i18next-express-middleware
@@ -20,8 +20,8 @@ i18nInstance
     preload: ['en', 'pt'], // preload all langages
     ns: ['common', 'home', 'page2'], // need to preload all the namespaces
     backend: {
-      loadPath: path.join(__dirname, '/locales/{{lng}}/{{ns}}.json'),
-      addPath: path.join(__dirname, '/locales/{{lng}}/{{ns}}.missing.json')
+      loadPath: path.join(__dirname, '../content/locales/{{lng}}/{{ns}}.json'),
+      addPath: path.join(__dirname, '../content/locales/{{lng}}/{{ns}}.missing.json')
     }
   }, () => {
     // loaded translations we can bootstrap our routes
@@ -39,7 +39,7 @@ i18nInstance
         server.use('/service-worker.js', express.static(path.join(__dirname, '.next', '/service-worker.js')))
 
         // missing keys
-        server.post('/locales/add/:lng/:ns', i18nextMiddleware.missingKeyHandler(i18nInstance))
+        server.post('../content/locales/add/:lng/:ns', i18nextMiddleware.missingKeyHandler(i18nInstance))
 
         // use next.js
         server.get('*', (req, res) => handle(req, res))

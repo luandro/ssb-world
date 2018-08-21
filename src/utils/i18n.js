@@ -28,7 +28,7 @@ const i18nInstance = i18next
 // for browser use xhr backend to load translations and browser lng detector
 if (process.browser) {
   i18nInstance
-    .use(XHR)
+    // .use(XHR)
     // .use(Cache)
     .use(LanguageDetector)
 }
