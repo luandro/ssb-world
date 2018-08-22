@@ -1,12 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
 import c from '../utils/colors'
+import Headroom from 'react-headroom'
 
 export default function Navbar () {
   return (
-    <div className="wrapper">
+    <Headroom>
       <div className="container">
-        <h1 className="chrome"><span>Ss</span><span>b</span> World</h1>
+        <h1><span>Ss</span><span>b</span> World <span>BETA</span></h1>
         <div>
           <Link href='/?lng=pt'>
             <a>Portugues</a>
@@ -17,16 +18,12 @@ export default function Navbar () {
         </div>
       </div>
       <style jsx>{`
-        .wrapper {
-          width: 100%;
-          position: fixed;
-          top: 0;
-          background: ${c.light};
-          box-shadow: 0 0 3px 0;
-          z-index: 99;
-          padding: 20px 0;
-        }
         .container {
+          width: 100%;
+          background: ${c.light};
+          z-index: 99;
+          padding: 10px 0;
+          box-shadow: 0 0 3px 0;
           display: flex;
           align-items: center;
           align-content: center;
@@ -38,12 +35,22 @@ export default function Navbar () {
           color: ${c.dark};
           text-transform: uppercase;
           padding-left: 15px;
+          font-weight: 100;
+          animation: text-flicker-in-glow 3.5s linear both;
         }
+        @keyframes text-flicker-in-glow{0%{opacity:0}10%{opacity:0;text-shadow:none}10.1%{opacity:1;text-shadow:none}10.2%{opacity:0;text-shadow:none}20%{opacity:0;text-shadow:none}20.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.25)}20.6%{opacity:0;text-shadow:none}30%{opacity:0;text-shadow:none}30.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.45),0 0 60px rgba(250,130,1,.25)}30.5%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.45),0 0 60px rgba(250,130,1,.25)}30.6%{opacity:0;text-shadow:none}45%{opacity:0;text-shadow:none}45.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.45),0 0 60px rgba(250,130,1,.25)}50%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.45),0 0 60px rgba(250,130,1,.25)}55%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.45),0 0 60px rgba(250,130,1,.25)}55.1%{opacity:0;text-shadow:none}57%{opacity:0;text-shadow:none}57.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.55),0 0 60px rgba(250,130,1,.35)}60%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.55),0 0 60px rgba(250,130,1,.35)}60.1%{opacity:0;text-shadow:none}65%{opacity:0;text-shadow:none}65.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.55),0 0 60px rgba(250,130,1,.35),0 0 100px rgba(250,130,1,.1)}75%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.55),0 0 60px rgba(250,130,1,.35),0 0 100px rgba(250,130,1,.1)}75.1%{opacity:0;text-shadow:none}77%{opacity:0;text-shadow:none}77.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.55),0 0 60px rgba(250,130,1,.4),0 0 110px rgba(250,130,1,.2),0 0 100px rgba(250,130,1,.1)}85%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.55),0 0 60px rgba(250,130,1,.4),0 0 110px rgba(250,130,1,.2),0 0 100px rgba(250,130,1,.1)}85.1%{opacity:0;text-shadow:none}86%{opacity:0;text-shadow:none}86.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.6),0 0 60px rgba(250,130,1,.45),0 0 110px rgba(250,130,1,.25),0 0 100px rgba(250,130,1,.1)}100%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.6),0 0 60px rgba(250,130,1,.45),0 0 110px rgba(250,130,1,.25),0 0 100px rgba(250,130,1,.1)}}@keyframes text-flicker-in-glow{0%{opacity:0}10%{opacity:0;text-shadow:none}10.1%{opacity:1;text-shadow:none}10.2%{opacity:0;text-shadow:none}20%{opacity:0;text-shadow:none}20.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.25)}20.6%{opacity:0;text-shadow:none}30%{opacity:0;text-shadow:none}30.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.45),0 0 60px rgba(250,130,1,.25)}30.5%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.45),0 0 60px rgba(250,130,1,.25)}30.6%{opacity:0;text-shadow:none}45%{opacity:0;text-shadow:none}45.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.45),0 0 60px rgba(250,130,1,.25)}50%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.45),0 0 60px rgba(250,130,1,.25)}55%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.45),0 0 60px rgba(250,130,1,.25)}55.1%{opacity:0;text-shadow:none}57%{opacity:0;text-shadow:none}57.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.55),0 0 60px rgba(250,130,1,.35)}60%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.55),0 0 60px rgba(250,130,1,.35)}60.1%{opacity:0;text-shadow:none}65%{opacity:0;text-shadow:none}65.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.55),0 0 60px rgba(250,130,1,.35),0 0 100px rgba(250,130,1,.1)}75%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.55),0 0 60px rgba(250,130,1,.35),0 0 100px rgba(250,130,1,.1)}75.1%{opacity:0;text-shadow:none}77%{opacity:0;text-shadow:none}77.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.55),0 0 60px rgba(250,130,1,.4),0 0 110px rgba(250,130,1,.2),0 0 100px rgba(250,130,1,.1)}85%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.55),0 0 60px rgba(250,130,1,.4),0 0 110px rgba(250,130,1,.2),0 0 100px rgba(250,130,1,.1)}85.1%{opacity:0;text-shadow:none}86%{opacity:0;text-shadow:none}86.1%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.6),0 0 60px rgba(250,130,1,.45),0 0 110px rgba(250,130,1,.25),0 0 100px rgba(250,130,1,.1)}100%{opacity:1;text-shadow:0 0 30px rgba(250,130,1,.6),0 0 60px rgba(250,130,1,.45),0 0 110px rgba(250,130,1,.25),0 0 100px rgba(250,130,1,.1)}}
         h1 span {
           color: ${c.primary};
+          font-weight: 900;
         }
         h1 span:nth-child(2) {
           color: ${c.secondary};
+        }
+        h1 span:nth-child(3) {
+          color: ${c.primary};
+          margin-left: -5px;
+          font-weight: 100;
+          font-size: 0.7em;
         }
         .container div {
           width: 40%;
@@ -56,6 +63,9 @@ export default function Navbar () {
         }
         .container div:nth-last-child(1) {
           padding-right: 30px;
+        }
+        img {
+          width: 25px;
         }
         @media (min-width: 640px) {
           .container div {
@@ -76,6 +86,6 @@ export default function Navbar () {
           }
         }
       `}</style>
-    </div>
+    </Headroom>
   )
 }

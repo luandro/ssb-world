@@ -49,6 +49,7 @@ export default function App ({ t, onClick, tab }) {
         a {
           font-size: 1.2em;
           padding-top: 15px;
+          font-size: 0;
         }
         svg > * {
           fill: red;
@@ -59,9 +60,17 @@ export default function App ({ t, onClick, tab }) {
         .selected {
           color: ${c.primary};
         }
-        @media (min-width: 1024px) {
+        hr {
+          width: 80%;
+        }
+        @media (min-width: 480px) {
+          a {
+            font-size: inherit;
+          }
+        }
+        @media (min-width: 720px) {
           .container {
-            width: 940px;
+            width: 640px;
           }
         }
       `}</style>

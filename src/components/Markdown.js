@@ -1,10 +1,14 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import c from '../utils/colors'
 
 export default function Markdown ({ t, input, align, largeWidth, width, margin }) {
   return (
     <div className="container">
-        <ReactMarkdown source={input} />
+        <ReactMarkdown
+          source={input}
+          className="markdown"
+        />
       <style jsx>{`
         .container {
           width: ${width ? width : '100%'};

@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
 import Markdown from './Markdown'
 import AppListNavbar from './AppListNavbar'
+import AppItem from './AppItem'
+import apps from '../../content/apps.json'
+
+const getTarget = (target, tab) => {
+  if (target === 'desktop' && tab === 0) return true
+  if (target === 'mobile' && tab === 1) return true
+  if (target === 'cli' && tab === 2) return true
+  return false
+}
 
 export default class AppList extends Component {
   state = {
@@ -30,6 +39,12 @@ export default class AppList extends Component {
             <img src="/static/ssb_diving_b.png" />
           </div>
           <AppListNavbar t={t} onClick={this.changeTab} tab={tab} />
+          <div className="apps">
+            {apps.map(i => {
+              const hasTarget = i.targets.filter(tg => getTarget(tg, tab))
+              if (hasTarget[0]) return <AppItem key={`${i.name}-${hasTarget[0]}`} t={t} {...i} />
+            })}
+          </div>
         </div>
         <style jsx>{`
           .wrapper {
@@ -50,7 +65,18 @@ export default class AppList extends Component {
           img {
             order: -1;
           }
+          .apps {
+            padding: 80px 0;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            align-content: flex-start;
+          }
           @media screen and (min-width: 1024px) {
+            .container {
+              width: 940px;
+            }
             .titleContainer {
               display: inherit;
             }

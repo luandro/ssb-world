@@ -1,5 +1,6 @@
 import React from 'react'
 import Markdown from './Markdown'
+import c from '../utils/colors'
 
 export default function PureComponent ({ t }) {
   return (
@@ -8,7 +9,7 @@ export default function PureComponent ({ t }) {
         <img src="/static/ssb_learning_b.png" />
         <Markdown
           t={t}
-          input={`## WELCOME TO SSB\n\nSecure Scuttlebutt is a decent(ralised) secure gossip platform with social in mind. Dwelling within this platform is a thriving community of **people** who are together figuring out ways to cooperate non-hierarchically and non-violently with our selves, others and the ecosystem.`}
+          input={`## LEARN MORE\n\nThere are some awesome resources if you want to dive in deeper. Check out the [SSB HANDBOOK]() to get a full overview of the Scuttleverse. In case you want to really understand how the protocol works check out the [PROTOCOL DOCS](). If you’re a developer you can explore and try our [API]() or follow the [SCUTTLEBUTT GUIDE]().`}
           largeWidth="55%"
         />
       </div>
@@ -16,7 +17,7 @@ export default function PureComponent ({ t }) {
         .wrapper {
           width: 100%;
           padding-top: 25px;
-          background: #E1EEF6;
+          background: ${c.complementary};
         }
         .wrapper:after,
         .wrapper::after {

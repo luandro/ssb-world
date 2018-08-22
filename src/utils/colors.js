@@ -3,4 +3,5 @@ export default {
   light: '#FDFFFC',
   primary: '#FF5F2E',
   secondary: '#FCBE32',
+  complementary: '#E1EEF6'
 }

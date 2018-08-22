@@ -8,11 +8,13 @@ const handle = app.getRequestHandler()
 
 const i18nextMiddleware = require('i18next-express-middleware')
 const Backend = require('i18next-node-fs-backend')
+const XHR = require('i18next-xhr-backend')
 const { i18nInstance } = require('./utils/i18n')
 
 // init i18next with serverside settings
 // using i18next-express-middleware
 i18nInstance
+  .use(XHR)
   .use(Backend)
   .use(i18nextMiddleware.LanguageDetector)
   .init({

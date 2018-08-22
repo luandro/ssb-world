@@ -1,23 +1,20 @@
 import React from 'react'
+import c from '../utils/colors'
 
-export default function App ({ t }) {
+export default function AppItem ({ t, sources }) {
   return (
     <div className="wrapper">
       <div className="container">
-        <p>{t('common:pureComponent')}</p>
+        <button>Download</button>
       </div>
       <style jsx>{`
         .wrapper {
-          width: 100%;
-          height: 600px;
         }
         .container {
-          width: 90%;
-          margin: 0 auto;
+          border: 1px solid ${c.complementary};
         }
         @media (min-width: 1024px) {
           .container {
-            width: 940px;
           }
         }
       `}</style>
