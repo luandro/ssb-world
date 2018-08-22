@@ -26,6 +26,7 @@
     "react-markdown": "^3.4.1"
   },
   "devDependencies": {
+    "babel-plugin-inline-react-svg": "^0.5.4",
     "eslint": "^5.3.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
