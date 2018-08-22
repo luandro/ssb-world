@@ -6,9 +6,19 @@
     "targets": ["desktop"],
     "downloads": [
       {
-        "appImage": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-linux-x86_64.AppImage",
-        "dmg": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-mac.dmg",
-        "exe": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-windows.exe"
+        "os": "Linux",
+        "format": "appimage",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-linux-x86_64.AppImage"
+      },
+      {
+        "os": "Mac",
+        "format": "dmg",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-mac.dmg"
+      },
+      {
+        "os": "Windows",
+        "format": "exe",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-windows.exe"
       }
     ]
   },
@@ -19,9 +29,19 @@
     "targets": ["desktop"],
     "downloads": [
       {
-        "appImage": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-linux-x86_64.AppImage",
-        "dmg": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-mac.dmg",
-        "exe": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-windows.exe"
+        "os": "Linux",
+        "format": "appimage",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-linux-x86_64.AppImage"
+      },
+      {
+        "os": "Mac",
+        "format": "dmg",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-mac.dmg"
+      },
+      {
+        "os": "Windows",
+        "format": "exe",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-windows.exe"
       }
     ]
   },
@@ -32,9 +52,19 @@
     "targets": ["desktop"],
     "downloads": [
       {
-        "appImage": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-linux-x86_64.AppImage",
-        "dmg": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-mac.dmg",
-        "exe": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-windows.exe"
+        "os": "Linux",
+        "format": "appimage",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-linux-x86_64.AppImage"
+      },
+      {
+        "os": "Mac",
+        "format": "dmg",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-mac.dmg"
+      },
+      {
+        "os": "Windows",
+        "format": "exe",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-windows.exe"
       }
     ]
   },
@@ -45,9 +75,19 @@
     "targets": ["desktop"],
     "downloads": [
       {
-        "appImage": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-linux-x86_64.AppImage",
-        "dmg": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-mac.dmg",
-        "exe": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-windows.exe"
+        "os": "Linux",
+        "format": "appimage",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-linux-x86_64.AppImage"
+      },
+      {
+        "os": "Mac",
+        "format": "dmg",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-mac.dmg"
+      },
+      {
+        "os": "Windows",
+        "format": "exe",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-windows.exe"
       }
     ]
   },
@@ -58,7 +98,9 @@
     "targets": ["mobile"],
     "downloads": [
       {
-        "apk": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-linux-x86_64.AppImage"
+        "os": "Android",
+        "format": "apk",
+        "src": "https://github.com/ssbc/patchwork/releases/download/v3.10.1/Patchwork-3.10.1-linux-x86_64.AppImage"
       }
     ]
   },
@@ -67,10 +109,6 @@
     "version": "3.10.1",
     "icon": "scat",
     "targets": ["cli"],
-    "downloads": [
-      {
-        "cli": "npm i -g scat"
-      }
-    ]
+    "install": "npm i -g ssb-chat"
   }
 ]

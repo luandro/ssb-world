@@ -11,7 +11,7 @@ import About from '../src/components/About'
 import AppList from '../src/components/AppList'
 import Footer from '../src/components/Footer'
 
-export default withI18next(['home', 'common'])(({ t, initialI18nStore }) => (
+export default withI18next(['common'])(({ t, initialI18nStore }) => (
   <div>
     <Head>
       <title>SSB World</title>

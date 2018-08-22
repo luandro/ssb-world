@@ -20,7 +20,6 @@ export default class AppList extends Component {
 
   componentDidMount () {
     const os = detectOs.get()
-    console.log('OS', os)
     const currentTab = () => {
       switch(os) {
         case 'Mac':
@@ -73,6 +72,7 @@ export default class AppList extends Component {
                 key={`${i.name}-${hasTarget[0]}`}
                 t={t} {...i}
                 os={os}
+                tab={tab}
               />
             })}
           </div>

@@ -1,3 +1,5 @@
 {
-  "pureComponent": "Estamos construíndo algo..."
+  "desktop": "Computador",
+  "mobile": "Celular",
+  "cli": "Linha de comando"
 }
