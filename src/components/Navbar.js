@@ -12,26 +12,32 @@ export default function Navbar () {
             <a>Portugues</a>
           </Link>
           <Link href=''>
-            <a>Github</a>
+            <a><img src="/static/git.png" /></a>
           </Link>
         </div>
       </div>
       <style jsx>{`
         .wrapper {
-          height: 80px;
           width: 100%;
-          border-bottom: 1px solid ${c.dark};
+          position: fixed;
+          top: 0;
+          background: ${c.light};
+          box-shadow: 0 0 3px 0;
+          z-index: 99;
+          padding: 20px 0;
         }
         .container {
           display: flex;
           align-items: center;
+          align-content: center;
           justify-content: space-around;
         }
         h1 {
-          width: 30%;
-          padding-left: 20%;
+          font-size: 1em;
+          width: 60%;
           color: ${c.dark};
           text-transform: uppercase;
+          padding-left: 15px;
         }
         h1 span {
           color: ${c.primary};
@@ -40,20 +46,33 @@ export default function Navbar () {
           color: ${c.secondary};
         }
         .container div {
-          width: 70%;
+          width: 40%;
           display: flex;
           align-items: center;
           justify-content: flex-end;
         }
         .container div * {
-          padding: 0 15px;
+          padding: 0 5px;
         }
         .container div:nth-last-child(1) {
           padding-right: 30px;
         }
+        @media (min-width: 640px) {
+          .container div {
+            width: 70%;
+          }
+        }
         @media (min-width: 1024px) {
+          .wrapper {
+            padding: 10px 0;
+          }
           h1 {
+            font-size: 1.2em;
+            padding-left: 20%;
             padding-left: calc((100vw - 940px)/2) 
+          }
+          .container div * {
+            padding: 0 15px;
           }
         }
       `}</style>
