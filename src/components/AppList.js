@@ -3,6 +3,7 @@ import Markdown from './Markdown'
 import AppListNavbar from './AppListNavbar'
 import AppItem from './AppItem'
 import apps from '../../content/apps.json'
+import detectOs from '@bit/tomlandau.simple-js.platform-detection.detect-os'
 
 const getTarget = (target, tab) => {
   if (target === 'desktop' && tab === 0) return true
@@ -14,6 +15,32 @@ const getTarget = (target, tab) => {
 export default class AppList extends Component {
   state = {
     tab: 0,
+    os: null,
+  }
+
+  componentDidMount () {
+    const os = detectOs.get()
+    console.log('OS', os)
+    const currentTab = () => {
+      switch(os) {
+        case 'Mac':
+          return 0
+        case 'Windows':
+          return 0
+        case 'Linux':
+          return 0
+        case 'iOS':
+          return 1
+        case 'Android':
+          return 1
+        default:
+          return 0
+      }
+    }
+    this.setState({
+      os: os,
+      tab: currentTab(),
+    })
   }
 
   changeTab = (index) => {
@@ -24,8 +51,8 @@ export default class AppList extends Component {
 
   render () {
     const { t } = this.props
-    const { tab } = this.state
-    return (
+    const { tab, os } = this.state
+    if (os) return (
       <div className="wrapper">
         <div className="container">
           <div className="titleContainer">
@@ -42,7 +69,11 @@ export default class AppList extends Component {
           <div className="apps">
             {apps.map(i => {
               const hasTarget = i.targets.filter(tg => getTarget(tg, tab))
-              if (hasTarget[0]) return <AppItem key={`${i.name}-${hasTarget[0]}`} t={t} {...i} />
+              if (hasTarget[0]) return <AppItem
+                key={`${i.name}-${hasTarget[0]}`}
+                t={t} {...i}
+                os={os}
+              />
             })}
           </div>
         </div>
@@ -60,13 +91,14 @@ export default class AppList extends Component {
             display: flex;
             flex-flow: column;
             align-items: center;
-            padding-bottom: 150px;
+            padding-bottom: 80px;
           }
           img {
             order: -1;
+            max-width: 100%;
           }
           .apps {
-            padding: 80px 0;
+            padding: 35px 0;
             display: flex;
             flex-flow: row wrap;
             justify-content: flex-start;
@@ -79,12 +111,16 @@ export default class AppList extends Component {
             }
             .titleContainer {
               display: inherit;
+              padding-bottom: 150px;
             }
             img {
               float: right;
               position: relative;
               top: -100px;
               width: 30%;
+            }
+            .apps {
+              padding: 80px 0;
             }
           }
           @media screen and (min-width: 1280px) {
@@ -95,5 +131,6 @@ export default class AppList extends Component {
         `}</style>
       </div>
     )
+    else return null
   }
 }

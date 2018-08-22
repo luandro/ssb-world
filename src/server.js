@@ -8,13 +8,11 @@ const handle = app.getRequestHandler()
 
 const i18nextMiddleware = require('i18next-express-middleware')
 const Backend = require('i18next-node-fs-backend')
-const XHR = require('i18next-xhr-backend')
-const { i18nInstance } = require('./utils/i18n')
+const i18n = require('./utils/i18n')
 
 // init i18next with serverside settings
 // using i18next-express-middleware
-i18nInstance
-  .use(XHR)
+i18n
   .use(Backend)
   .use(i18nextMiddleware.LanguageDetector)
   .init({
@@ -32,16 +30,13 @@ i18nInstance
         const server = express()
 
         // enable middleware for i18next
-        server.use(i18nextMiddleware.handle(i18nInstance))
+        server.use(i18nextMiddleware.handle(i18n))
 
         // serve locales for client
         server.use('/locales', express.static(path.join(__dirname, '/locales')))
 
-        // load service workers
-        server.use('/service-worker.js', express.static(path.join(__dirname, '.next', '/service-worker.js')))
-
         // missing keys
-        server.post('../content/locales/add/:lng/:ns', i18nextMiddleware.missingKeyHandler(i18nInstance))
+        server.post('/locales/add/:lng/:ns', i18nextMiddleware.missingKeyHandler(i18n))
 
         // use next.js
         server.get('*', (req, res) => handle(req, res))

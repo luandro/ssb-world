@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 import { withI18next } from '../src/utils/withI18next'
 
 import PureComponent from '../src/components/PureComponent'
@@ -15,15 +14,12 @@ import Footer from '../src/components/Footer'
 export default withI18next(['home', 'common'])(({ t, initialI18nStore }) => (
   <div>
     <Head>
-      <title>SSB Worlde</title>
+      <title>SSB World</title>
     </Head>
     <Navbar />
     <Header t={t} />
     <About t={t} />
     <AppList t={t} />
-    <Link href='/app'>
-      <a>{t('link.gotoPage2')}</a>
-    </Link>
     <Footer t={t} />
   </div>
 ))

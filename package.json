@@ -11,6 +11,7 @@
   "author": "Luandro <luandro@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@bit/tomlandau.simple-js.platform-detection.detect-os": "^0.0.2",
     "@zeit/next-css": "^0.2.0",
     "express": "^4.16.3",
     "i18next": "^11.6.0",
