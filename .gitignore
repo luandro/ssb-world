@@ -61,4 +61,5 @@ typings/
 .env
 
 # next.js build output
+out
 .next

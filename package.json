@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "node src/server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node src/server.js"
+    "start": "NODE_ENV=production node src/server.js",
+    "deploy": "npm run build && next export && npm run deploy-static",
+    "deploy-static": "surge out beta.ssb.world"
   },
   "author": "Luandro <luandro@gmail.com>",
   "license": "MIT",
