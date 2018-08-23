@@ -10,7 +10,8 @@ export default function App ({ t, onClick, tab }) {
         {tabs.map((item, index) => (
           <div key={index} className="navItem" onClick={() => onClick(index)}>
             <TabIcons fill={(tab === index) ? c.primary : null} img={item} />
-            <a className={(tab === index) ? 'selected' : null}>{t(`common:${item}`)}</a>
+            <a className={(tab === index) ? 'selected' : null}>{item}</a>
+            {/* <a className={(tab === index) ? 'selected' : null}>{t(`common:${item}`)}</a> */}
           </div>
         ))}
       </div>
@@ -37,6 +38,7 @@ export default function App ({ t, onClick, tab }) {
           font-size: 1.2em;
           padding-top: 15px;
           font-size: 0;
+          text-transform: capitalize;
         }
         svg > * {
           fill: red;

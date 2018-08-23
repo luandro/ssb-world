@@ -9,9 +9,9 @@ export default function Navbar () {
       <div className="container">
         <h1><span>Ss</span><span>b</span> World <span>BETA</span></h1>
         <div>
-          <Link href='/?lng=pt'>
+          {/* <Link href='/?lng=pt'>
             <a>Portugues</a>
-          </Link>
+          </Link> */}
           <Link href=''>
             <a><img src="/static/git.svg" /></a>
           </Link>

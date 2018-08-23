@@ -11,7 +11,9 @@ import About from '../src/components/About'
 import AppList from '../src/components/AppList'
 import Footer from '../src/components/Footer'
 
-export default withI18next(['common'])(({ t, initialI18nStore }) => (
+const t = null
+
+export default () => (
   <div>
     <Head>
       <title>SSB World</title>
@@ -22,4 +24,4 @@ export default withI18next(['common'])(({ t, initialI18nStore }) => (
     <AppList t={t} />
     <Footer t={t} />
   </div>
-))
+)
